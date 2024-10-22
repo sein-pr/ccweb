@@ -1,0 +1,134 @@
+
+
+main {
+    display: flex;
+    gap: 5em;
+    background-color: #ffffff;
+    padding: 2em;
+    border: 2px solid #00afed;
+    border-radius: 5px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.form-container {
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #1f1d1d;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-size: 1rem;
+    color: #7c7b7b;
+}
+
+.form-container .help-sign-up {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 1.2em 0;
+}
+
+.help-sign-up button {
+    flex: 1;
+    padding: 5px 10px;
+    color: #fff;
+    background-color: #00afed;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.help-sign-up button i {
+    color: #1f1d1d;
+    font-size: 15px;
+}
+
+.help-sign-up button:hover {
+    background-color: #fff;
+    color: #00afed;
+    border: 1px solid #00afed;
+}
+
+fieldset {
+    border: none;
+    border-top: 1px solid #7c7b7b;
+    margin: 0 0 1.5em 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+}
+
+legend {
+    text-align: center;
+    padding: 0 10px;
+    font-size: 1rem;
+    color: #7c7b7b;
+    background-color: #ffffff;
+    position: relative;
+    top: -0.7em;
+}
+
+form {
+    color: #1f1d1d;
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-size: 1rem;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+form input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+form input[type="button"] {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1em 0;
+}
+
+form input[type="button"]:hover {
+    background-color: #00afed;
+}
+
+form a {
+    color: #00afed;
+    text-decoration: none;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+img {
+    height: auto;
+    max-width: 30em;
+    border-radius: 5px;
+    border: 1px solid #00afed;
+    object-fit: cover;
+}
