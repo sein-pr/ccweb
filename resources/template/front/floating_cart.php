@@ -1,7 +1,9 @@
  <!-- Floating Cart Icon and Modal -->
  <div class="floating-cart" onclick="toggleCartModal()">
         <i class="uil uil-shopping-bag"></i>
-        <span class="cart-count">0</span>
+        <span class="cart-count"><?php
+             echo $_SESSION['product_1'];
+            ?></span>
     </div>
 
     <div class="cart-modal" id="cartModal">

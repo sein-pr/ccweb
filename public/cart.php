@@ -1,11 +1,142 @@
 <?php
-    require_once("../resources/config.php");
+require_once "../resources/config.php";
 ?>
-<?php include(TEMPLATE_FRONT .DS. "header.php")?>
+<?php include TEMPLATE_FRONT . DS . "header.php"?>
 
-<?php 
- $_SESSION["product_1"] = 1;
+<?php
+if (isset($_GET["add"])) {
+    // Query the product from the database
+    $query = query("SELECT * FROM products WHERE product_id=" . escape_string($_GET['add']) . ' ');
+    confirm($query);
+
+    while ($row = fetch_array($query)) {
+        $product_key = 'product_' . $_GET['add'];
+
+        // Check if the session for this product is set, if not, initialize it
+        if (!isset($_SESSION[$product_key])) {
+            $_SESSION[$product_key] = 0;
+        }
+
+        // Check if the product quantity allows adding more items to the cart
+        if ($row['product_quantity'] > $_SESSION[$product_key]) {
+            $_SESSION[$product_key] += 1;
+        } else {
+            set_message("We only have: " . $row['product_quantity'] . " " . "{$row['product_title']}" . " available");
+        }
+    }
+
+    // Redirect after adding the item to avoid form resubmission issues
+    redirect('cart.php');
+}
+
+if (isset($_GET["remove"])) {
+    $product_key = 'product_' . $_GET['remove'];
+
+    // Ensure the product exists in the session before decrementing
+    if (isset($_SESSION[$product_key]) && $_SESSION[$product_key] > 0) {
+        $_SESSION[$product_key]--;
+    }
+
+    // If the quantity becomes less than 1, remove it from the session
+    if ($_SESSION[$product_key] < 1) {
+        unset($_SESSION[$product_key]); // Remove the product from session if quantity is 0 or less
+    }
+
+    // Redirect after removing the item
+    redirect('cart.php');
+}
+
+if (isset($_GET["delete"])) {
+    $product_key = 'product_' . $_GET['delete'];
+
+    // Ensure the product exists in the session before deleting
+    if (isset($_SESSION[$product_key])) {
+        unset($_SESSION[$product_key]); // Remove the product from session
+    }
+
+    // Redirect after deleting the item
+    redirect('cart.php');
+}
+
+function cart()
+{
+    // Reset item total and quantity to avoid duplication on page reload
+    $_SESSION['item_total'] = 0;
+    $_SESSION['item_quantity'] = 0;
+
+    $total = 0;
+    $item_quantity = 0;
+
+    foreach ($_SESSION as $name => $value) {
+
+        if ($value > 0) {
+
+            if (substr($name, 0, 8) == 'product_') {
+                $length = strlen($name) - 8;
+                $id = substr($name, 8, $length);
+
+                $query = query("SELECT * FROM products WHERE product_id=" . escape_string($id) . "");
+                confirm($query);
+                while ($row = fetch_array($query)) {
+                    $total_price = $value * $row['product_price'];
+                    $item_quantity += $value;
+                    $product = <<<DELIMETER
+            <div class="cart-item">
+                <img src="{$row['product_img']}" alt="cart item">
+                <div class="item-info">
+                    <div class="name">
+                        <p class="item-name">{$row['product_title']}</p>
+                        <span class="item-total-price">{$total_price}</span>
+                    </div>
+                    <div class="price">
+                        <p class="actual-price">{$row['product_price']}</p>
+                        <span class="avail">In stock:{$row['product_quantity']}</span>
+                    </div>
+                    <div class="sizes">
+                        <div class="select-container">
+                            <select id="size-select">
+                                <option value="300x300">300x300</option>
+                                <option value="600x600">600x600</option>
+                                <option value="600x900">600x900</option>
+                            </select>
+                        </div>
+                        <div class="item-quantity">
+                            <button class="quantity-btn" ><a style="text-decoration: none;" href="cart.php?remove={$row['product_id']}">-</a></button>
+                            <input type="text" id="quantity" value="{$value}" readonly>
+                            <button class="quantity-btn" ><a style="text-decoration: none;"  href="cart.php?add={$row['product_id']}">+</a></button>
+                        </div>
+                        <div class="other-actions">
+                            <div class="like">
+                                <i class="uil uil-heart"></i>
+                                <span>Save</span>
+                            </div>
+                            <div class="delete">
+                                <i class="uil uil-trash"></i>
+                                <span><a style="text-decoration: none;" href="cart.php?delete={$row['product_id']}">Delete</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        DELIMETER;
+
+                    echo $product;
+                    $total += $total_price; 
+                     // Accumulate total price
+                }
+            }
+
+        }
+    }
+
+    $_SESSION['item_total'] +=$total;
+    $_SESSION['item_quantity'] +=$item_quantity;
+
+}
 ?>
+
+
+
     <main>
         <div class="page-hero">
             <h1>My Cart</h1>
@@ -21,126 +152,10 @@
                 <h2>My Items</h2>
                 <hr>
                 <div class="item-container">
-                    <div class="cart-item">
-                        <img src="/assets/data/adornment_300x300.jpg" alt="cart item">
-                        <div class="item-info">
-                            <div class="name">
-                                <p class="item-name">Adornment</p>
-                                <span class="item-total-price">$10.00</span>
-                            </div>
-                            <div class="price">
-                                <p class="actual-price">$10.99</p>
-                                <span class="avail">In stock</span>
-                            </div>
-                            <div class="sizes">
-                                <div class="select-container">
-                                    <select id="size-select">
-                                        <option value="300x300">300x300</option>
-                                        <option value="600x600">600x600</option>
-                                        <option value="600x900">600x900</option>
-                                    </select>
-                                </div>
-                                <div class="item-quantity">
-                                    <button class="quantity-btn" onclick="decrement()">−</button>
-                                    <input type="text" id="quantity" value="1" readonly>
-                                    <button class="quantity-btn" onclick="increment()">+</button>
-                                </div>
-                                <div class="other-actions">
-                                    <div class="like">
-                                        <i class="uil uil-heart"></i>
-                                        <span>Save</span>
-                                    </div>
-                                    <div class="delete">
-                                        <i class="uil uil-trash"></i>
-                                        <span>Delete</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php cart()?>
                     <hr>
                 </div>
 
-                <div class="item-container">
-                    <div class="cart-item">
-                        <img src="/assets/data/360_F_571205629_onFrxqE3KmdhZZ3Tm91VdsDj9szAmlWM.jpg" alt="cart item">
-                        <div class="item-info">
-                            <div class="name">
-                                <p class="item-name">Adornment</p>
-                                <span class="item-total-price">$10.00</span>
-                            </div>
-                            <div class="price">
-                                <p class="actual-price">$10.00</p>
-                                <span class="avail">In stock</span>
-                            </div>
-                            <div class="sizes">
-                                <div class="select-container">
-                                    <select id="size-select">
-                                        <option value="300x300">300x300</option>
-                                        <option value="600x600">600x600</option>
-                                        <option value="600x900">600x900</option>
-                                    </select>
-                                </div>
-                                <div class="item-quantity">
-                                    <button class="quantity-btn" onclick="decrement()">−</button>
-                                    <input type="text" id="quantity" value="1" readonly>
-                                    <button class="quantity-btn" onclick="increment()">+</button>
-                                </div>
-                                <div class="other-actions">
-                                    <div class="like">
-                                        <i class="uil uil-heart"></i>
-                                        <span>Save</span>
-                                    </div>
-                                    <div class="delete">
-                                        <i class="uil uil-trash"></i>
-                                        <span>Delete</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-                <div class="item-container">
-                    <div class="cart-item">
-                        <img src="/assets/data/a-callout_300x300.jpg" alt="cart item">
-                        <div class="item-info">
-                            <div class="name">
-                                <p class="item-name">A Callout</p>
-                                <span class="item-total-price">$20.00</span>
-                            </div>
-                            <div class="price">
-                                <p class="actual-price">$20.00</p>
-                                <span class="avail">In stock</span>
-                            </div>
-                            <div class="sizes">
-                                <div class="select-container">
-                                    <select id="size-select">
-                                        <option value="300x300">300x300</option>
-                                        <option value="600x600">600x600</option>
-                                        <option value="600x900">600x900</option>
-                                    </select>
-                                </div>
-                                <div class="item-quantity">
-                                    <button class="quantity-btn" onclick="decrement()">−</button>
-                                    <input type="text" id="quantity" value="1" readonly>
-                                    <button class="quantity-btn" onclick="increment()">+</button>
-                                </div>
-                                <div class="other-actions">
-                                    <div class="like">
-                                        <i class="uil uil-heart"></i>
-                                        <span>Save</span>
-                                    </div>
-                                    <div class="delete">
-                                        <i class="uil uil-trash"></i>
-                                        <span>Delete</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
             </div>
             <div class="checkout">
                 <h2>Delivery</h2>
@@ -153,7 +168,7 @@
                 </div>
                 <hr>
                 <div class="invoice">
-                    
+
                     <form action="#">
                         <input type="text" placeholder="Promocode20">
                         <input type="button" value="Apply">
@@ -162,8 +177,8 @@
                     <hr>
 
                     <div class="invoice-item">
-                        <span>Subtotal</span>
-                        <span>$80.96</span>
+                        <span>No.Items</span>
+                        <span><?php echo $_SESSION['item_quantity']?></span>
                     </div>
                     <div class="invoice-item">
                         <span>Discount </span>
@@ -179,7 +194,7 @@
                     </div>
                     <div class="invoice-item total">
                         <span>Total</span>
-                        <span>$78.77</span>
+                        <span><?php echo $_SESSION['item_total']?></span>
                     </div>
                 </div>
                 <div class="button">
@@ -187,7 +202,7 @@
                     <button class="shop" onclick="window.location.href='./index.html'">Continue Shopping</button>
 
                 </div>
-                
+
             </div>
         </div>
     </main>

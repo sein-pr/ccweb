@@ -66,7 +66,7 @@ function get_products() {
              <p class="item-name" onclick="window.location.href='item-view.php?id={$row['product_id']}'" '" >{$product_name}</p>
              <p class="item-rating"></p>
              <p class="item-price">&#36 {$product_price}</p>
-             <button style="padding: 8px 20px; color: white;border-radius:5px; background-color: #e74c3c; border: none;cursor:pointer; " class="buy">Buy now<button>
+             <button onclick="window.location.href='cart.php?add={$row['product_id']}'" '" style="padding: 8px 20px; color: white;border-radius:5px; background-color: #e74c3c; border: none;cursor:pointer; " class="buy">Add to cart<button>
          </div>
      DELIMETER;
  

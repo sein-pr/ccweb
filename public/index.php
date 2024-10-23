@@ -28,7 +28,6 @@
             </div>
         </section>
         <!-- Hero section ends here -->
-
         <!-- trending section starts here -->
         <section class="trending">
             <!-- category -->

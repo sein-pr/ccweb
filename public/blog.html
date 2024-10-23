@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafted Culture | My Cart</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" href="/assets/img/logo-short.png" type="icon">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+</head>
+
+<body>
+    <header>
+        <a href="#logo" class="logo">
+            <img src="/assets/img/logo.png" alt="logo" class="logo large">
+            <img src="/assets/img/logo-short.png" alt="logo" class="logo small">
+        </a>
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="#Home" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <i class="uil uil-search" id="search-icon"></i>
+            <i class="uil uil-heart" id="liked"></i>
+            <div class="logged-user">
+                <span>Hi! <br> <span id="username">Vicky</span></span>
+                <img src="/assets/img/logo-short.png" alt="logged user">
+            </div>
+            <i class="uil uil-list-ui-alt menu-icon" id="menu"></i>
+        </nav>
+    </header>
+    <!-- Modal for Search Form -->
+    <div id="search-modal" class="modal">
+        <div class="modal-content">
+            <span class="close"><i class="uil uil-x"></i></span>
+            <form action="">
+                <input type="text" placeholder="Search....">
+                <input type="button" value="Search">
+            </form>
+        </div>
+    </div>
+    <main class="blog">
+        <div class="page-hero">
+            <h1>Crafted Blogs😊</h1>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="blog.html" class="active" onclick="return false;">Blog</a></li>
+            </ul>
+
+            <h2><span>Crafted Culture</span>, Telling African Stories</h2>
+            <p>Bringing Africa to the world by sharing stories</p>
+            <form action="#">
+                <input type="text">
+                <input type="button" value="Subscribe">
+            </form>
+        </div>
+
+        <section class="recent">
+            <h3>Recent Blog posts</h3>
+            <div class="recent-blog">
+                <div class="featured-blog">
+                    <img src="/assets/data/riverfow_2048x2048.jpg" alt="riverfow">
+                    <h4>River Fow: The Soul of Africa in Motion</h4>
+                    <p>At first glance, River Fow sweeps you into the rhythm of a story deeply rooted in 
+                        the heart of Africa. This powerful piece of art, with its flowing lines and vibrant 
+                        colors, is more than just a painting—it's a journey, a dance, and a narrative about 
+                        the beauty and resilience of African heritage.
+                        <span>Read More</span>
+                    </p>
+                    <div class="react">
+                        <button><i class="uil uil-share"></i> share</button>
+                        <button><i class="uil uil-heart"></i> 120</button>
+                    </div>
+                </div>
+                <div class="more-recent">
+                    <div class="item">
+                        <img src="/assets/data/a-callout_2048x2048.jpg" alt="">
+                        <div class="item-info">
+                            <div class="date">
+                                <span>Victoia Kalula</span>
+                                <span class="date">18 Jan 2024</span>
+                            </div>
+                            <h4>A Callout: The Majestic Protector of the Savannah</h4>
+                            <p>
+                                This breathtaking piece, <em>A Callout</em>, captures the awe-inspiring essence of the African lioness, 
+                                one of nature's most fearless protectors...
+                            </p>
+                            <div class="react">
+                                <button>Read</button>
+                                <button><i class="uil uil-share"></i> share</button>
+                                <button><i class="uil uil-heart"></i> 120</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="/assets/data/a-callout_2048x2048.jpg" alt="">
+                        <div class="item-info">
+                            <div class="date">
+                                <span>Victoia Kalula</span>
+                                <span class="date">18 Jan 2024</span>
+                            </div>
+                            <h4>The Majestic Protector of the Savannah</h4>
+                            <p>
+                                This breathtaking piece, <em>A Callout</em>, captures the awe-inspiring essence of the African lioness, 
+                                one of nature's most fearless protectors. Painted in stunning realism, the scene speaks to the 
+                                raw power and grace of Africa's wildlife. The lioness, standing tall and alert, exudes strength, 
+                                her watchful gaze surveying the vast expanse of the savannah. At her side, a young cub, safely 
+                                tucked away, nurtures a bond of protection and survival that defines the African wilderness.
+                            </p>
+                            <div class="react">
+                                <button>Read</button>
+                                <button><i class="uil uil-share"></i> share</button>
+                                <button><i class="uil uil-heart"></i> 120</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="/assets/data/a-callout_2048x2048.jpg" alt="">
+                        <div class="item-info">
+                            <div class="date">
+                                <span>Victoia Kalula</span>
+                                <span class="date">18 Jan 2024</span>
+                            </div>
+                            <h4>A Callout: The Majestic Protector of the Savannah</h4>
+                            <p>
+                                This breathtaking piece, <em>A Callout</em>, captures the awe-inspiring essence of the African lioness, 
+                                one of nature's most fearless protectors. Painted in stunning realism, the scene speaks to the 
+                                raw power and grace of Africa's wildlife. The lioness, standing tall and alert, exudes strength, 
+                                her watchful gaze surveying the vast expanse of the savannah. At her side, a young cub, safely 
+                                tucked away, nurtures a bond of protection and survival that defines the African wilderness.
+                            </p>
+                            <div class="react">
+                                <button>Read</button>
+                                <button><i class="uil uil-share"></i> share</button>
+                                <button><i class="uil uil-heart"></i> 120</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="all-blogs">
+            <h3>All Posts</h3>
+            <div class="all-posts">
+                <div class="item-blog">
+                    <img src="/assets/data/a-callout_2048x2048.jpg" alt="">
+                    <div class="date">
+                        <span>Victoria</span>
+                        <span >18 Jan 2024</span>
+                    </div>
+                    <h4>A Callout: The Majestic Protector of the Savannah</h4>
+                    <p>
+                        This breathtaking piece, <em>A Callout</em>, captures the awe-inspiring essence of the African lioness, 
+                        one of nature's most fearless protectors. Painted in stunning realism, the scene speaks to the 
+                        raw power and grace of Africa's wildlife. The lioness, standing tall and alert, exudes strength, 
+                        her watchful gaze surveying the vast expanse of the savannah.
+                    </p>
+                    <div class="react">
+                        <button><i class="uil uil-share"></i> share</button>
+                        <button><i class="uil uil-heart"></i> 120</button>
+                    </div>
+                </div>
+
+                <div class="item-blog">
+                    <img src="/assets/data/a-callout_2048x2048.jpg" alt="">
+                    <div class="date">
+                        <span>Victoia Kalula</span>
+                        <span >18 Jan 2024</span>
+                    </div>
+                    <h4>A Callout: The Majestic Protector of the Savannah</h4>
+                    <p>
+                        This breathtaking piece, <em>A Callout</em>, captures the awe-inspiring essence of the African lioness, 
+                        one of nature's most fearless protectors. Painted in stunning realism, the scene speaks to the 
+                        raw power and grace of Africa's wildlife. The lioness, standing tall and alert, exudes strength, 
+                        her watchful gaze surveying the vast expanse of the savannah.
+                    </p>
+                    <div class="react">
+                        <button><i class="uil uil-share"></i> share</button>
+                        <button><i class="uil uil-heart"></i> 120</button>
+                    </div>
+                </div>
+
+                <div class="item-blog">
+                    <img src="/assets/data/a-callout_2048x2048.jpg" alt="">
+                    <div class="date">
+                        <span>Victoia Kalula</span>
+                        <span>18 Jan 2024</span>
+                    </div>
+                    <h4>A Callout: The Majestic Protector of the Savannah</h4>
+                    <p>
+                        This breathtaking piece, <em>A Callout</em>, captures the awe-inspiring essence of the African lioness, 
+                        one of nature's most fearless protectors. Painted in stunning realism, the scene speaks to the 
+                        raw power and grace of Africa's wildlife. The lioness, standing tall and alert, exudes strength, 
+                        her watchful gaze surveying the vast expanse of the savannah.
+                    </p>
+                    <div class="react">
+                        <button><i class="uil uil-share"></i> share</button>
+                        <button><i class="uil uil-heart"></i> 120</button>
+                    </div>
+                </div>
+
+                <div class="item-blog">
+                    <img src="/assets/data/a-callout_2048x2048.jpg" alt="">
+                    <div class="date">
+                        <span>Victoia Kalula</span>
+                        <span>18 Jan 2024</span>
+                    </div>
+                    <h4>A Callout: The Majestic Protector of the Savannah</h4>
+                    <p>
+                        This breathtaking piece, <em>A Callout</em>, captures the awe-inspiring essence of the African lioness, 
+                        one of nature's most fearless protectors. Painted in stunning realism, the scene speaks to the 
+                        raw power and grace of Africa's wildlife. The lioness, standing tall and alert, exudes strength, 
+                        her watchful gaze surveying the vast expanse of the savannah.
+                    </p>
+                    <div class="react">
+                        <button><i class="uil uil-share"></i> share</button>
+                        <button><i class="uil uil-heart"></i> 120</button>
+                    </div>
+                </div>
+
+                <div class="item-blog">
+                    <img src="/assets/data/a-callout_2048x2048.jpg" alt="">
+                    <div class="date">
+                        <span>Victoia Kalula</span>
+                        <span>18 Jan 2024</span>
+                    </div>
+                    <h4>A Callout: The Majestic Protector of the Savannah</h4>
+                    <p>
+                        This breathtaking piece, <em>A Callout</em>, captures the awe-inspiring essence of the African lioness, 
+                        one of nature's most fearless protectors. Painted in stunning realism, the scene speaks to the 
+                        raw power and grace of Africa's wildlife. The lioness, standing tall and alert, exudes strength, 
+                        her watchful gaze surveying the vast expanse of the savannah.
+                    </p>
+                    <div class="react">
+                        <button><i class="uil uil-share"></i> share</button>
+                        <button><i class="uil uil-heart"></i> 120</button>
+                    </div>
+                </div>
+
+                <div class="item-blog">
+                    <img src="/assets/data/a-callout_2048x2048.jpg" alt="">
+                    <div class="date">
+                        <span>Victoia Kalula</span>
+                        <span>18 Jan 2024</span>
+                    </div>
+                    <h4>A Callout: The Majestic Protector of the Savannah</h4>
+                    <p>
+                        This breathtaking piece, <em>A Callout</em>, captures the awe-inspiring essence of the African lioness, 
+                        one of nature's most fearless protectors. Painted in stunning realism, the scene speaks to the 
+                        raw power and grace of Africa's wildlife. The lioness, standing tall and alert, exudes strength, 
+                        her watchful gaze surveying the vast expanse of the savannah.
+                    </p>
+                    <div class="react">
+                        <button><i class="uil uil-share"></i> share</button>
+                        <button><i class="uil uil-heart"></i> 120</button>
+                    </div>
+                </div>
+
+                <div class="item-blog">
+                    <img src="/assets/data/a-callout_2048x2048.jpg" alt="">
+                    <div class="date">
+                        <span>Victoia Kalula</span>
+                        <span>18 Jan 2024</span>
+                    </div>
+                    <h4>A Callout: The Majestic Protector of the Savannah</h4>
+                    <p>
+                        This breathtaking piece, <em>A Callout</em>, captures the awe-inspiring essence of the African lioness, 
+                        one of nature's most fearless protectors. Painted in stunning realism, the scene speaks to the 
+                        raw power and grace of Africa's wildlife. The lioness, standing tall and alert, exudes strength, 
+                        her watchful gaze surveying the vast expanse of the savannah.
+                    </p>
+                    <div class="react">
+                        <button><i class="uil uil-share"></i> share</button>
+                        <button><i class="uil uil-heart"></i> 120</button>
+                    </div>
+                </div>
+
+                <div class="item-blog">
+                    <img src="/assets/data/a-callout_2048x2048.jpg" alt="">
+                    <div class="date">
+                        <span>Victoia Kalula</span>
+                        <span>18 Jan 2024</span>
+                    </div>
+                    <h4>A Callout: The Majestic Protector of the Savannah</h4>
+                    <p>
+                        This breathtaking piece, <em>A Callout</em>, captures the awe-inspiring essence of the African lioness, 
+                        one of nature's most fearless protectors. Painted in stunning realism, the scene speaks to the 
+                        raw power and grace of Africa's wildlife. The lioness, standing tall and alert, exudes strength, 
+                        her watchful gaze surveying the vast expanse of the savannah.
+                    </p>
+                    <div class="react">
+                        <button><i class="uil uil-share"></i> share</button>
+                        <button><i class="uil uil-heart"></i> 120</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="newsletter">
+            <p>Join our newsletter to <br> keep up to date with latest art!</p>
+            <div class="letter-btn">
+                <form action="#" class="news-input">
+                    <i class="uil uil-user"></i>
+                    <input type="email" placeholder="example@gmail.com">
+                </form>
+                <form action="#" class="sub-btn">
+                    <input type="button" value="Subscribe">
+                </form>
+            </div>
+        </div>
+        <hr>
+
+        <div class="footer-nav">
+            <div class="logo-side">
+                <img src="/assets/img/logo-short.png" alt="logo">
+                <h3>Crafted Culture</h3>
+                <p>Telling African stories with <span class="typing">style and beauty</span> 😊!</p>
+                <div class="contacts">
+                    <div class="email">
+                        <p>Email Address</p>
+                        <span>craftedculture@seinindustries.com</span>
+                    </div>
+                    <div class="phone">
+                        <p>Phone Number</p>
+                        <span>+264 81 478 1478</span>
+                    </div>
+                </div>
+
+                <div class="footer-socials">
+                    <a href="#linkedin"><i class="uil uil-linkedin-alt"></i></a>
+                    <a href="#Instagram"><i class="uil uil-instagram"></i></a>
+                    <a href="#x"><i class="uil uil-twitter-alt"></i></a>
+                    <a href="#Facebook"><i class="uil uil-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links-side">
+                <div class="first">
+                    <label for="links">Navigation</label>
+                    <a href="#Home" class="active">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="#shop">Shop</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="second">
+                    <label for="company">Company</label>
+                    <a href="#news">News</a>
+                    <a href="#career">Careers</a>
+                    <a href="#company" class="company-name"><span>SEIN</span> INDUSTRIES</a>
+                </div>
+                <div class="last">
+                    <label for="resources">Resources</label>
+                    <a href="#guides">Guides</a>
+                    <a href="#papers">Papers</a>
+                    <a href="#press">Press Conferences</a>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="bottom-footer">
+            <p>&copy;2024 Crafted Culture. All rights reserved - SEIN <span>INDUSTRIES</span></p>
+            <div class="conditions">
+                <a href="#terms">Terms of service</a>
+                <a href="#policy">Privacy Policy</a>
+                <a href="#cookies">Cookies</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/scripts/blog.js"></script>
+</body>
+
+</html>

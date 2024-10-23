@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="icon" href="/assets/img/logo-short.png" type="icon">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Crafted Culture| About Us</title>
+</head>
+<body class="about">
+    <header>
+        <a href="#logo">
+            <img src="/assets/img/logo.png" alt="logo" class="logo large">
+            <img src="/assets/img/logo-short.png" alt="logo" class="logo small">
+        </a>
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#about" class="active">About</a>
+                <a href="shop.html">Shop</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <i class="uil uil-search" id="search-icon"></i>
+            <i class="uil uil-heart" id="liked"></i>
+            <div class="logged-user">
+                <span>Hi! <br> <span id="username">Vicky</span></span>
+                <img src="/assets/img/logo-short.png" alt="logged user">
+            </div>
+            <i class="uil uil-list-ui-alt menu-icon" id="menu"></i>
+        </nav>
+    </header>
+
+    <!-- Modal for Search Form -->
+    <div id="search-modal" class="modal">
+        <div class="modal-content">
+            <span class="close"><i class="uil uil-x"></i></span>
+            <form action="">
+                <input type="text" placeholder="Search....">
+                <input type="button" value="Search">
+            </form>
+        </div>
+    </div>
+    <main>
+        <div class="page-hero">
+            <h1>About us</h1>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="about.html" class="active" onclick="return false;">About</a></li>
+            </ul>
+        </div>
+        <div class="who">
+            <div class="content">
+                <h1>Who we are</h1>
+                <p>
+                    Crafted Culture is a premier online platform dedicated to showcasing and selling authentic African art. 
+                    We connect millions of art enthusiasts and collectors worldwide with unique, handcrafted pieces that embody the rich cultural heritage of Africa. <br>
+                    <br>
+                    
+                    From our inception, our mission has been to break away from the limitations of traditional art marketplaces. 
+                    We strive to offer a seamless and accessible experience for both seasoned collectors and those discovering the beauty of African art for the first time. <br>
+                    <br>
+                    
+                    
+                    As Crafted Culture continues to grow, we celebrate our commitment to honoring African creativity and making it accessible to art lovers everywhere. 
+                    With a diverse collection of artwork from talented African artists, we aim to enrich homes and spaces globally, one masterpiece at a time. 
+                    This journey is a testament to our dedication to the artists we represent and the cultural stories their art conveys.
+                </p>
+            </div>
+            <div class="about-banner">
+                <img src="/assets/img/carfted-about.png" alt="showcasing image">
+            </div>
+        </div>
+
+        <div class="proud-off">
+            <div class="what">
+                <p class="number">2.5M+</p>
+                <p class="content">Arts available</p>
+            </div>
+            <div class="what">
+                <p class="number">2.5M+</p>
+                <p class="content">Arts available</p>
+            </div>
+            <div class="what">
+                <p class="number">1.5M+</p>
+                <p class="content">Arts sold monthly</p>
+            </div>
+            <div class="what">
+                <p class="number">2.5M+</p>
+                <p class="content">Arts lovers subscribed</p>
+            </div>
+        </div>
+        
+        <div class="values-container">
+            <h2>Our values are the fabric of <br> our culture</h2>
+            <div class="values">
+                <div class="value-item">
+                    <div class="value-icon"><i class="uil uil-balance-scale"></i></div>
+                    <div class="value-content">
+                        <p class="title">Integrity</p>
+                        <p >At CraftedCulture, we believe in honoring our artisans and customers with honesty and fairness. 
+                        We ensure that every transaction is transparent, every piece of art is authentic, 
+                        and our communications are clear and truthful.
+                        </p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon"><i class="uil uil-heart"></i></div>
+                    <div class="value-content">
+                        <p class="title">Customer Focus</p>
+                        <p>Our customers are at the heart of everything we do. 
+                            We are dedicated to curating a collection of African art that not only meets but exceeds expectations, 
+                            providing an experience that celebrates the beauty and diversity of African culture.
+                        </p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon"><i class="uil uil-graduation-cap"></i></div>
+                    <div class="value-content">
+                        <p class="title">Competence</p>
+                        <p>We value individuals who bring skill, creativity, and a commitment to excellence. 
+                            Our team is driven by a passion for learning, growth, 
+                            and delivering exceptional service to both our artists and our customers.
+                        </p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon"><i class="uil uil-puzzle-piece"></i></div>
+                    <div class="value-content">
+                        <p class="title">Teamwork</p>
+                        <p>Collaboration is key to our success. 
+                            We encourage a culture of teamwork where every member contributes their unique strengths, 
+                            working together with humility and shared ambition to celebrate and promote African art on a global stage.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+    <!-- Floating Cart Icon and Modal -->
+    <div class="floating-cart" onclick="toggleCartModal()">
+        <i class="uil uil-shopping-bag"></i>
+        <span class="cart-count">0</span>
+    </div>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="modal-content">
+            <h2>Your Cart</h2>
+            <p>No items in cart.</p>
+            <button onclick="closeCartModal()">Continue shopping</button>
+            <button onclick="window.location.href='./cart.html';">Go to cart</button>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="newsletter">
+            <p>Join our newsletter to <br> keep up to date with latest art!</p>
+            <div class="letter-btn">
+                <form action="#" class="news-input">
+                    <i class="uil uil-user"></i>
+                    <input type="email" placeholder="example@gmail.com">
+                </form>
+                <form action="#" class="sub-btn">
+                    <input type="button" value="Subscribe">
+                </form>
+            </div>
+        </div>
+        <hr>
+
+        <div class="footer-nav">
+            <div class="logo-side">
+                <img src="/assets/img/logo-short.png" alt="logo">
+                <h3>Crafted Culture</h3>
+                <p>Telling African stories with <span class="typing">style and beauty</span> 😊!</p>
+                <div class="contacts">
+                    <div class="email">
+                        <p>Email Address</p>
+                        <span>craftedculture@seinindustries.com</span>
+                    </div>
+                    <div class="phone">
+                        <p>Phone Number</p>
+                        <span>+264 81 478 1478</span>
+                    </div>
+                </div>
+
+                <div class="footer-socials">
+                    <a href="#linkedin"><i class="uil uil-linkedin-alt"></i></a>
+                    <a href="#Instagram"><i class="uil uil-instagram"></i></a>
+                    <a href="#x"><i class="uil uil-twitter-alt"></i></a>
+                    <a href="#Facebook"><i class="uil uil-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links-side">
+                <div class="first">
+                    <label for="links">Navigation</label>
+                    <a href="#Home" class="active">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="#shop">Shop</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="second">
+                    <label for="company">Company</label>
+                    <a href="#news">News</a>
+                    <a href="#career">Careers</a>
+                    <a href="#company" class="company-name"><span>SEIN</span> INDUSTRIES</a>
+                </div>
+                <div class="last">
+                    <label for="resources">Resources</label>
+                    <a href="#guides">Guides</a>
+                    <a href="#papers">Papers</a>
+                    <a href="#press">Press Conferences</a>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="bottom-footer">
+            <p>&copy;2024 Crafted Culture. All rights reserved - SEIN <span>INDUSTRIES</span></p>
+            <div class="conditions">
+                <a href="#terms">Terms of service</a>
+                <a href="#policy">Privacy Policy</a>
+                <a href="#cookies">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="./scripts/main.js"></script>
+</body>
+</html>

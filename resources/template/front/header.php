@@ -21,14 +21,14 @@
                 <a href="index.php" class="active">Home</a>
                 <a href="about.html">About</a>
                 <a href="shop.php">Shop</a>
-                <a href="#blog">Blog</a>
-                <a href="#contact">Contact</a>
+                <a href="log.php">Blog</a>
+                <a href="contact.php">Contact</a>
             </div>
             <i class="uil uil-search" id="search-icon"></i>
             <i class="uil uil-heart" id="liked"></i>
             <div class="logged-user">
                 <span>Hi! <br> <span id="username">Vicky</span></span>
-                <img src="/assets/img/logo-short.png" alt="logged user" onclick="location.href='sign-up.php'">
+                <img src="img/logo-short.png" alt="logged user" onclick="location.href='sign-up.php'">
             </div>
             <i class="uil uil-list-ui-alt menu-icon" id="menu"></i>
         </nav>
